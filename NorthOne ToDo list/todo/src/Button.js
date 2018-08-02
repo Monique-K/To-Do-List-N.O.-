@@ -18,7 +18,7 @@ function ContainedButtons(props) {
   return (
     <div>
       <Button variant="contained" className={classes.button}>
-        Default
+        New To-Do
       </Button>
     </div>
   );
