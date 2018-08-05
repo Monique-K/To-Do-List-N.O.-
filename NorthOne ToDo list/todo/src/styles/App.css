@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+main {
+  margin-top: 100px;
+}
+
+.to-do-container {
+  text-align: left
+}
+
+.color-swatch {
+  height: 10px;
+  width: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.color-legend {
+  text-align: left;
+}
+
+#purple-cat {
+  background-color: #c38bff;
+}
+
+#pink-cat {
+  background-color: #ffb8b8;
+}
+
+#green-cat {
+  background-color: #a6ffc7;
+}
+
+#peach-cat {
+  background-color: #ffc39a;
+}
+
+#blue-cat {
+  background-color: #6e9dff;
+}
+
+.purpleCategory {
+  border: 5px solid #c38bff;
+}
+
+.pinkCategory {
+  border: 5px solid #ffb8b8;
+}
+
+.greenCategory {
+  border: 5px solid #a6ffc7;
+}
+
+.peachCategory {
+  border: 5px solid #ffc39a;
+}
+
+.blueCategory {
+  border: 5px solid #6e9dff;
+}
+
+

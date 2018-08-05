@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './styles/App.css';
 import ToDo           from './ToDo.js'
 import WithStyles     from './NavBar.js'
 

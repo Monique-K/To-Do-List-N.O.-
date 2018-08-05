@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddNew         from './AddNew.js'
 import PropTypes      from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import myToDos        from './seed.js';
@@ -20,41 +21,36 @@ class ToDo extends Component {
     this.dueDate = dueDate
   }
 
-  purpleCategory = {
-    name: "Purple",
-    colour: "#c38bff"
-  }
-
-  pinkCategory = {
-    name: "Pink",
-    colour: "#ffb8b8"
-  }
-
-  greenCategory = {
-    name: "Green",
-    colour: "#a6ffc7"
-  }
-
-  peachCategory = {
-    name: "Peach",
-    colour: "#ffc39a"
-  }
-
-  blueCategory = {
-    name: "Blue",
-    colour: "#6e9dff"
-  }
-
-  addNewToDo = () => {
-    console.log("add a new one!")
+  categories = {
+    "purpleCategory": {
+          name: "To buy",
+          colour: "#c38bff"
+        },
+    "pinkCategory": {
+          name: "Errands",
+          colour: "#ffb8b8"
+        },
+    "greenCategory": {
+          name: "Social",
+          colour: "#a6ffc7"
+        },
+    "peachCategory": {
+          name: "Work",
+          colour: "#ffc39a"
+        },
+    "blueCategory": {
+          name: "Other",
+          colour: "#6e9dff"
+        }
   }
 
   displayToDos = () => {
     let singleToDo = myToDos.map( item => {
+      let categoryClass = item.category
       return(
-          <li>
+          <div className={categoryClass}>
             {item.description}, Status: {item.status}, Due: {item.dueDate}
-          </li>
+          </div>
         )
     })
     return singleToDo;
@@ -76,12 +72,16 @@ class ToDo extends Component {
               </ul>
             </div>
             <div className="done-status">
-              <ul>
-              </ul>
+              <div className="color-legend">
+                  <div className="color-swatch" id="purple-cat" />To buy
+                  <div className="color-swatch" id="pink-cat" />Errands
+                  <div className="color-swatch" id="green-cat" />Social
+                  <div className="color-swatch" id="peach-cat" />Work 
+                  <div className="color-swatch" id="blue-cat" />Other
+              </div>
             </div>
           </div>
-          <Button variant="contained" onClick={this.addNewToDo}>New To-Do</Button>
-
+              <AddNew categories={this.categories} />
         </div>
       );
   }
