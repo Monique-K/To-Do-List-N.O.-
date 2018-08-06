@@ -1,9 +1,41 @@
-.App {
+#root {
   text-align: center;
 }
 
+body {
+  background-color: #d1d2d3;
+  margin: 0;
+  padding: 0;
+  font-family: 'Slabo 27px', serif;
+}
+
 main {
-  margin-top: 100px;
+  margin-top: 30px;
+}
+
+table {
+  margin: 5px;
+  padding: 2px;
+  border-collapse: collapse;
+  width: 80vw;
+}
+
+tr {
+  height: 40px;
+  font-size: 16px;
+}
+
+.input {
+  margin: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.container {
+  width: 30vw;
+  border: 1px solid black;
+  margin: 5px;
+  border-radius: 5px;
 }
 
 .to-do-container {
@@ -15,18 +47,22 @@ main {
   width: 10px;
   border: 1px solid black;
   overflow: hidden;
+  float: left;
+  margin: 2px;
 }
 
 .color-legend {
   text-align: left;
+  float: right;
+  margin: 2px;
 }
 
 #purple-cat {
-  background-color: #c38bff;
+  background-color: #bb9adf;
 }
 
 #pink-cat {
-  background-color: #ffb8b8;
+  background-color: #fcb7b7;
 }
 
 #green-cat {
@@ -34,31 +70,50 @@ main {
 }
 
 #peach-cat {
-  background-color: #ffc39a;
+  background-color: #f5c4a4;
 }
 
 #blue-cat {
   background-color: #6e9dff;
 }
 
-.purpleCategory {
-  border: 5px solid #c38bff;
+.single-todo {
+  margin: 5px;
+  background-color: rgb(209, 209, 205);
+  border-radius: 5px;
+  width: 50vw;
+  margin: 5px;
 }
 
-.pinkCategory {
-  border: 5px solid #ffb8b8;
+.Purchase {
+  background-color: #bb9adf;
+  padding: 3px;
+  border-radius: 5px;
 }
 
-.greenCategory {
-  border: 5px solid #a6ffc7;
+.Errands {
+  background-color: #ffb8b8;
+  padding: 3px;
+  border-radius: 5px;
 }
 
-.peachCategory {
-  border: 5px solid #ffc39a;
+.Social {
+  background-color: #a6ffc7;
+  padding: 3px;
+  border-radius: 5px;
 }
 
-.blueCategory {
-  border: 5px solid #6e9dff;
+.Work {
+  background-color: #f5c4a4;
+  padding: 3px;
+  border-radius: 5px;
 }
+
+.Other {
+  background-color: #6e9dff;
+  padding: 3px;
+  border-radius: 5px;
+}
+
 
 

@@ -1,68 +1,110 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import myToDos        from './seed.js';
-import PropTypes from 'prop-types';
-import {  Button,
-          TextField,
-          Dialog,
-          DialogActions,
-          DialogContent,
-          DialogContentText,
-          DialogTitle } from '@material-ui/core'
+import React, {Component} from 'react';
+import {Button} from '@material-ui/core'
 
 export default class AddNew extends Component {
 
   constructor(props) {
     super(props)
-  }
-
-
-  addNewToDo = () => {
-    console.log("add a new one!")
+    this.state = {
+      description: "",
+      status: "",
+      dueDate: "",
+      category: ""
+    }
   }
 
   styles = theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
-  },
-  formControl: {
-    margin: theme.spacing.unit,
-  },
-});
+    },
+    formControl: {
+      margin: theme.spacing.unit,
+    },
+  });
 
-  // displayCategories = () => {
-  //   for (let category in this.props.categories) {
-  //     return (
-  //           <MenuItem key={category.name} value={category.name} />
-  //         )
-  //     }
-  //   }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.addNewTask(this.state);
+  }
 
-render() {
-  return (
-      <div className="container">
-      <form action="./ToDo.js">
-        Task:<br />
-        <input type="text" name="description" placeholder="Description"></input>
-        <br/>
-        <select name="Category">
-          <option value="Select one">Select one</option>
-          <option value="Shopping">To buy</option>
-          <option value="Errands">Errands</option>
-          <option value="Social">Social</option>
-          <option value="Work">Work</option>
-          <option value="Other">Other</option>
-        </select>
-          <br />
-          Due date: <input type="date" name="due-date" />
+
+  handleDescription = (e) => {
+    this.setState({description: e.target.value})
+  }
+
+  handleCategory = (e) => {
+    this.setState({category: e.target.value})
+  }
+
+  handleStatus = (e) => {
+    this.setState({status: e.target.value})
+  }
+
+  handleDueDate = (e) => {
+    this.setState({dueDate: e.target.value})
+  }
+
+ 
+
+  render() {
+    return (
+        <div className="container">
+        <form action="./ToDo.js">
+          Task:<br />
+          <input
+              className="input" 
+              type="text" 
+              name="description" 
+              placeholder="Description" 
+              value={this.state.description}
+              onChange={this.handleDescription}
+          >
+          </input>
+          <br/>
+          <select 
+          name="Category" 
+          value={this.setCategory} 
+          onChange={this.handleCategory}
+          className="input"
+          >
+            <option value="Select one">Category</option>
+            <option value="Purchase">Purchase</option>
+            <option value="Errands">Errands</option>
+            <option value="Social">Social</option>
+            <option value="Work">Work</option>
+            <option value="Other">Other</option>
+          </select>
+          <select 
+          name="status" 
+          value={this.state.status} 
+          onChange={this.handleStatus}
+          className="input"
+          >
+            <option value="Select one">Status</option>
+            <option value="Doing">Doing</option>
+            <option value="On hold">On hold</option>
+            <option value="Done">Done</option>
+          </select>
+            <br />
+            Due date: <input
+              className="input" 
+              type="date" 
+              name="due-date" 
+              value={this.state.dueDate} 
+              onChange={this.handleDueDate} />
+          <br /><br />
+        <Button 
+            variant="contained" 
+            type="submit" 
+            value="Add" 
+            onClick={this.handleSubmit}
+        >Add new Task
+        </Button>
         <br /><br />
-      <Button variant="contained" type="submit" value="Add">Add new Task</Button>
-      <br /><br />
-      </form>
-    </div>
+        </form>
+      </div>
     )
-}
-
+  }
 
 }

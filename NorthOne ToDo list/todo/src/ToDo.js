@@ -1,24 +1,15 @@
 import React, { Component } from 'react';
 import AddNew         from './AddNew.js'
-import PropTypes      from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import myToDos        from './seed.js';
-import {  Button,
-          TextField,
-          Dialog,
-          DialogActions,
-          DialogContent,
-          DialogContentText,
-          DialogTitle } from '@material-ui/core'
+
 
 class ToDo extends Component {
 
   constructor(name, description, category, dueDate) {
     super()
-    this.name = name,
-    this.description = description,
-    this.category = category,
-    this.dueDate = dueDate
+    this.state = {
+      toDos: myToDos
+    }
   }
 
   categories = {
@@ -44,15 +35,26 @@ class ToDo extends Component {
         }
   }
 
+  addNewTask = (task) => {
+    console.log("added a new task")
+    this.state.toDos.push(task);
+    this.setState({ todos: [...myToDos, task]})
+    this.displayToDos();
+  }
+
   displayToDos = () => {
-    let singleToDo = myToDos.map( item => {
+    console.log("rendering todos!!!!!")
+    let singleToDo = this.state.toDos.map( item => {
       let categoryClass = item.category
       return(
-          <div className={categoryClass}>
-            {item.description}, Status: {item.status}, Due: {item.dueDate}
-          </div>
+        <tr className={categoryClass}>
+            <td>{item.description}</td>  
+            <td>{item.status}</td>
+            <td>{item.dueDate}</td>
+        </tr>
         )
     })
+    console.log("single todo", singleToDo)
     return singleToDo;
   }
 
@@ -61,8 +63,17 @@ class ToDo extends Component {
 
       return (
         <div>
-          <div className="to-do-container">
-          {this.displayToDos()}
+          <span className="to-do-container">
+          <table>
+            <tr>
+              <th>Task</th>
+              <th>Status</th>
+              <th>Due Date</th>
+            </tr>
+            <tbody>
+              {this.displayToDos()}
+            </tbody>
+          </table>
             <div className="to-do-status">
               <ul>
               </ul>
@@ -71,17 +82,23 @@ class ToDo extends Component {
               <ul>
               </ul>
             </div>
-            <div className="done-status">
-              <div className="color-legend">
+            <div className="color-legend">
+              <span>
+                <h4>Legend:</h4>
                   <div className="color-swatch" id="purple-cat" />To buy
+                    <br />
                   <div className="color-swatch" id="pink-cat" />Errands
+                    <br />
                   <div className="color-swatch" id="green-cat" />Social
+                    <br />
                   <div className="color-swatch" id="peach-cat" />Work 
+                    <br />
                   <div className="color-swatch" id="blue-cat" />Other
-              </div>
+                    <br />
+              </span>
             </div>
-          </div>
-              <AddNew categories={this.categories} />
+          </span>
+            <AddNew categories={this.categories} addNewTask={this.addNewTask} />
         </div>
       );
   }
