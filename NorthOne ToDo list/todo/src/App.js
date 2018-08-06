@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <WithStyles />
+        <WithStyles id="navbar" />
           <main>
             <ToDo />
           </main>

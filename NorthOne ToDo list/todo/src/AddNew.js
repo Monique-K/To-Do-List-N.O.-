@@ -6,6 +6,7 @@ export default class AddNew extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      title: "",
       description: "",
       status: "",
       dueDate: "",
@@ -28,6 +29,9 @@ export default class AddNew extends Component {
     this.props.addNewTask(this.state);
   }
 
+  handleTitle = (e) => {
+    this.setState({title: e.target.value})
+  }
 
   handleDescription = (e) => {
     this.setState({description: e.target.value})
@@ -52,6 +56,16 @@ export default class AddNew extends Component {
         <div className="container">
         <form action="./ToDo.js">
           Task:<br />
+          <input
+              className="input" 
+              type="text" 
+              name="title" 
+              id="title-field"
+              placeholder="Title" 
+              value={this.state.title}
+              onChange={this.handleTitle}
+          >
+          </input>
           <input
               className="input" 
               type="text" 

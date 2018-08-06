@@ -1,32 +1,41 @@
 const myToDos = [
-  {
+  { id: 1,
+    title: "Read a book",
     description: "Read 'A Dance with Dragons'",
     status: "Doing",
-    dueDate: "September 1, 2018",
+    dueDate: "2018-09-05",
     category: "Other"
   },
   {
-    description: "Buy Mom a birthday gift",
+    id: 2,
+    title: "Buy Mom a birthday gift",
+    description: "and maybe some flowers",
     status: "Doing",
-    dueDate: "December 25, 2018",
+    dueDate: "2018-12-25",
     category: "Purchase"
   },
   {
-    description: "Clean out the garage",
+    id: 3,
+    title: "Clean out the garage",
+    description: "make space for the car",
     status: "On hold",
-    dueDate: "August 10, 2018",
+    dueDate: "2018-08-08",
     category: "Work"
   },
-  {
-    description: "Go camping with Colette",
+  { 
+    id: 4,
+    title: "Camping trip",
+    description: "with Colette and Mark",
     status: "Doing",
-    dueDate: "August 19, 2018",
+    dueDate: "2018-08-28",
     category: "Social"
   },
-  {
-    description: "Buy kitty litter",
+  { 
+    id: 5,
+    title: "Go to the pet store",
+    description: "buy kitty litter, frog food, gerbil treats",
     status: "Done",
-    dueDate: "July 31, 2018",
+    dueDate: "2018-08-05",
     category: "Purchase"
   }
 ]
