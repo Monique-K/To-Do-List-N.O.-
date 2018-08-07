@@ -22,6 +22,7 @@ table {
   padding: 2px;
   border-collapse: collapse;
   width: 80vw;
+  box-shadow: 2px 2px 2px 2px #dedfe0;
 }
 
 tr {
@@ -38,9 +39,10 @@ tr {
 
 .container {
   width: 30vw;
-  border: 1px solid black;
-  margin: 5px;
+  border: 1px solid #9b9da0;
+  margin: auto;
   border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px #dedfe0;
 }
 
 .to-do-container {
@@ -50,16 +52,21 @@ tr {
 .color-swatch {
   height: 10px;
   width: 10px;
-  border: 1px solid black;
+  border: 1px solid #7f8082;
   overflow: hidden;
   float: left;
   margin: 2px;
 }
 
 .color-legend {
+  border: 1px solid #9b9da0;
+  border-radius: 5px;
+  padding: 20px;
+  padding-top: 5px;
   text-align: left;
   float: right;
-  margin: 2px;
+  margin: 10px;
+  box-shadow: 2px 2px 2px 2px #dedfe0;
 }
 
 .table-button {

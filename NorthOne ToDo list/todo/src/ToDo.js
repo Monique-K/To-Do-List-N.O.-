@@ -10,7 +10,8 @@ class ToDo extends Component {
   constructor(name, description, category, dueDate) {
     super()
     this.state = {
-      toDos: myToDos
+      toDos: myToDos,
+      editing: "",
     }
   }
 
@@ -40,37 +41,37 @@ class ToDo extends Component {
   addNewTask = (task) => {
     this.state.toDos.push(task);
     this.setState({ todos: [...myToDos, task]})
-    //Add id ----------------------------------------------------------
     this.displayToDos();
   }
 
   displayToDos = () => {
-    let singleToDo = this.state.toDos.map( item => {
+    let singleToDo = sortedToDos.map( item => {
       let categoryClass = item.category
       return(
         <tr className={categoryClass}>
             <td>{item.title}</td>
-            <td>{item.description}</td>  
+            <td>{item.description}</td>
             <td><b>{item.status}</b></td>
             <td>{item.dueDate}</td>
-            <Button 
+            <Button
               className="table-button"
-              variant="contained" 
-              type="submit" 
-              value="Edit" 
+              variant="contained"
+              type="submit"
+              value="Edit"
               task={item}
-              onClick={this.handleEdit}
               >Edit
-            </Button> 
-          <Button 
+            </Button>
+            <td>
+          <Button
             className="table-button"
-            variant="contained" 
-            type="submit" 
-            value="Delete" 
+            variant="contained"
+            type="submit"
+            value="Delete"
             onClick={() => this.handleSubmit(item)}
           >Delete
           </Button>
-        </tr> 
+          </td>
+        </tr>
         )
     })
     return singleToDo;
@@ -82,8 +83,13 @@ class ToDo extends Component {
     this.setState({
       toDos: this.state.toDos
     })
-    
-   
+  }
+
+  handleEdit = (item) => {
+    this.setState({
+      editing: item
+    })
+    this.handleSubmit(item);
   }
 
 
@@ -92,6 +98,21 @@ class ToDo extends Component {
       return (
         <div>
           <span className="to-do-container">
+          <div className="color-legend">
+              <span>
+                <h4>Legend:</h4>
+                  <div className="color-swatch" id="purple-cat" />To buy
+                    <br />
+                  <div className="color-swatch" id="pink-cat" />Errands
+                    <br />
+                  <div className="color-swatch" id="green-cat" />Social
+                    <br />
+                  <div className="color-swatch" id="peach-cat" />Work
+                    <br />
+                  <div className="color-swatch" id="blue-cat" />Other
+                    <br />
+              </span>
+            </div>
           <table>
             <thead>
             <tr>
@@ -105,23 +126,9 @@ class ToDo extends Component {
               {this.displayToDos()}
             </tbody>
           </table>
-            <div className="color-legend">
-              <span>
-                <h4>Legend:</h4>
-                  <div className="color-swatch" id="purple-cat" />To buy
-                    <br />
-                  <div className="color-swatch" id="pink-cat" />Errands
-                    <br />
-                  <div className="color-swatch" id="green-cat" />Social
-                    <br />
-                  <div className="color-swatch" id="peach-cat" />Work 
-                    <br />
-                  <div className="color-swatch" id="blue-cat" />Other
-                    <br />
-              </span>
-            </div>
+
           </span>
-            <AddNew categories={this.categories} addNewTask={this.addNewTask} />
+            <AddNew categories={this.categories} editing={this.state.editing} addNewTask={this.addNewTask} />
         </div>
       );
   }
