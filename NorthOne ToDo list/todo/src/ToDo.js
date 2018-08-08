@@ -45,7 +45,7 @@ class ToDo extends Component {
   };
 
   displayToDos = () => {
-    let singleToDo = sortedToDos.map( item => {
+    let singleToDo = this.state.toDos.map( item => {
       let categoryClass = item.category
       return(
         <tr className={categoryClass}>
