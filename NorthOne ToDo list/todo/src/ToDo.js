@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import AddNew         from './AddNew.js'
 import myToDos        from './seed.js';
-import {Button}       from '@material-ui/core'
+import {Button}       from '@material-ui/core';
 
 
 
 class ToDo extends Component {
 
-  constructor(name, description, category, dueDate) {
+  constructor() {
     super()
     this.state = {
       toDos: myToDos,
       editing: "",
     }
-  }
+  };
 
   categories = {
     "purpleCategory": {
@@ -36,23 +36,23 @@ class ToDo extends Component {
           name: "Other",
           colour: "#6e9dff"
         }
-  }
+  };
 
   addNewTask = (task) => {
     this.state.toDos.push(task);
     this.setState({ todos: [...myToDos, task]})
     this.displayToDos();
-  }
+  };
 
   displayToDos = () => {
     let singleToDo = sortedToDos.map( item => {
       let categoryClass = item.category
       return(
         <tr className={categoryClass}>
-            <td>{item.title}</td>
-            <td>{item.description}</td>
-            <td><b>{item.status}</b></td>
-            <td>{item.dueDate}</td>
+          <td>{item.title}</td>
+          <td>{item.description}</td>
+          <td><b>{item.status}</b></td>
+          <td>{item.dueDate}</td>
             <Button
               className="table-button"
               variant="contained"
@@ -61,21 +61,21 @@ class ToDo extends Component {
               task={item}
               >Edit
             </Button>
-            <td>
+          <td>
           <Button
             className="table-button"
             variant="contained"
             type="submit"
             value="Delete"
             onClick={() => this.handleSubmit(item)}
-          >Delete
+            >Delete
           </Button>
           </td>
         </tr>
         )
     })
     return singleToDo;
-  }
+  };
 
   handleSubmit = (item) => {
     let i = this.state.toDos.indexOf(item);
@@ -83,14 +83,14 @@ class ToDo extends Component {
     this.setState({
       toDos: this.state.toDos
     })
-  }
+  };
 
   handleEdit = (item) => {
     this.setState({
       editing: item
     })
     this.handleSubmit(item);
-  }
+  };
 
 
   render() {
@@ -132,6 +132,6 @@ class ToDo extends Component {
         </div>
       );
   }
-}
+};
 
 export default ToDo;

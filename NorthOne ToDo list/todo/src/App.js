@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './styles/App.css';
 import ToDo           from './ToDo.js'
 import WithStyles     from './NavBar.js'
+import './styles/App.css';
 
 
 

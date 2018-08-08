@@ -1,7 +1,3 @@
-#root {
-  text-align: center;
-}
-
 body {
   background-color: #ffffff;
   margin: 0;
@@ -13,9 +9,6 @@ main {
   margin-top: 30px;
 }
 
-#navbar {
-  font-family: 'Slabo 27px', serif;
-}
 
 table {
   margin: 5px;
@@ -74,26 +67,6 @@ tr {
   height: 15px;
 }
 
-#purple-cat {
-  background-color: #bb9adf;
-}
-
-#pink-cat {
-  background-color: #fcb7b7;
-}
-
-#green-cat {
-  background-color: #a6ffc7;
-}
-
-#peach-cat {
-  background-color: #f5c4a4;
-}
-
-#blue-cat {
-  background-color: #6e9dff;
-}
-
 .single-todo {
   margin: 5px;
   background-color: rgb(209, 209, 205);
@@ -131,6 +104,35 @@ tr {
   padding: 3px;
   border-radius: 5px;
 }
+
+#root {
+  text-align: center;
+}
+
+#navbar {
+  font-family: 'Slabo 27px', serif;
+}
+
+#purple-cat {
+  background-color: #bb9adf;
+}
+
+#pink-cat {
+  background-color: #fcb7b7;
+}
+
+#green-cat {
+  background-color: #a6ffc7;
+}
+
+#peach-cat {
+  background-color: #f5c4a4;
+}
+
+#blue-cat {
+  background-color: #6e9dff;
+}
+
 
 
 

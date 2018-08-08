@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button} from '@material-ui/core'
+import {Button}           from '@material-ui/core';
 
 export default class AddNew extends Component {
 
@@ -13,8 +13,7 @@ export default class AddNew extends Component {
       dueDate: "",
       category: ""
     }
-
-  }
+  };
 
   styles = theme => ({
   container: {
@@ -39,11 +38,12 @@ export default class AddNew extends Component {
     return randomID;
   };
 
+  // Edit function - not yet complete
   // editTask = () => {
   //   if (this.props.editing !== "") {
   //     let task = this.props.editing;
   //     }
-  //   }
+  //  };
 
 
   handleSubmit = async (e) => {
@@ -58,27 +58,27 @@ export default class AddNew extends Component {
       dueDate: "",
       category: ""
     })
-  }
+  };
 
   handleTitle = (e) => {
     this.setState({title: e.target.value})
-  }
+  };
 
   handleDescription = (e) => {
     this.setState({description: e.target.value})
-  }
+  };
 
   handleCategory = (e) => {
     this.setState({category: e.target.value})
-  }
+  };
 
   handleStatus = (e) => {
     this.setState({status: e.target.value})
-  }
+  };
 
   handleDueDate = (e) => {
     this.setState({dueDate: e.target.value})
-  }
+  };
 
 
   render() {
@@ -86,36 +86,36 @@ export default class AddNew extends Component {
     // this.editTask();
 
     return (
-        <div className="container">
+      <div className="container">
         <form action="./ToDo.js" id="new-task-form">
           Task:<br />
           <input
-              className="input"
-              type="text"
-              name="title"
-              placeholder="Title"
-              value={this.state.title}
-              onChange={this.handleTitle}
-          >
+            className="input"
+            type="text"
+            name="title"
+            placeholder="Title"
+            value={this.state.title}
+            onChange={this.handleTitle}
+            >
           </input>
           <input
-              className="input"
-              id="description-field"
-              type="text"
-              name="description"
-              placeholder="Description"
-              value={this.state.description}
-              onChange={this.handleDescription}
-          >
+            className="input"
+            id="description-field"
+            type="text"
+            name="description"
+            placeholder="Description"
+            value={this.state.description}
+            onChange={this.handleDescription}
+            >
           </input>
           <br/>
           <select
-              name="Category"
-              id="categor-field"
-              value={this.setCategory}
-              onChange={this.handleCategory}
-              className="input"
-          >
+            name="Category"
+            id="categor-field"
+            value={this.setCategory}
+            onChange={this.handleCategory}
+            className="input"
+            >
             <option value="Select one">Category</option>
             <option value="Purchase">Purchase</option>
             <option value="Errands">Errands</option>
@@ -124,12 +124,12 @@ export default class AddNew extends Component {
             <option value="Other">Other</option>
           </select>
           <select
-              name="status"
-              id="status-field"
-              value={this.state.status}
-              onChange={this.handleStatus}
-              className="input"
-          >
+            name="status"
+            id="status-field"
+            value={this.state.status}
+            onChange={this.handleStatus}
+            className="input"
+            >
             <option value="Select one">Status</option>
             <option value="Doing">Doing</option>
             <option value="On hold">On hold</option>
@@ -137,19 +137,19 @@ export default class AddNew extends Component {
           </select>
             <br />
             Due date: <input
-                className="input"
-                id="due-date-field"
-                type="date"
-                name="due-date"
-                value={this.state.dueDate}
-                onChange={this.handleDueDate} />
+              className="input"
+              id="due-date-field"
+              type="date"
+              name="due-date"
+              value={this.state.dueDate}
+              onChange={this.handleDueDate} />
           <br /><br />
         <Button
-            variant="contained"
-            type="submit"
-            value="Add"
-            onClick={this.handleSubmit}
-        >Add new Task
+          variant="contained"
+          type="submit"
+          value="Add"
+          onClick={this.handleSubmit}
+          >Add new Task
         </Button>
         <br /><br />
         </form>
